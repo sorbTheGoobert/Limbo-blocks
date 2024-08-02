@@ -1,37 +1,42 @@
-var button = document.getElementById("start");
-var box1 = document.getElementById("box1");
-var box2 = document.getElementById("box2");
-var box3 = document.getElementById("box3");
-var box4 = document.getElementById("box4");
-var box5 = document.getElementById("box5");
-var box6 = document.getElementById("box6");
-var box7 = document.getElementById("box7");
-var box8 = document.getElementById("box8");
-var box = [box1, box2, box3, box4, box5, box6, box7, box8];
-var correctBox = box[Math.floor(Math.random() * 9)];
-var devWidth = document.body.offsetWidth;
-var devHeigth = document.body.offsetHeight;
+const game = document.getElementById("canvas");
+const ctx = game.getContext("2d");
 
-function sleep(delay) {
-    var start = new Date().getTime();
-    while (new Date().getTime() < start + delay);
+function redrawFrame() {
+    ctx.clearRect(0, 0, 900, 500);
+    ctx.fillStyle = "black";
+    ctx.fillRect(0, 0, 900, 500);
 }
 
-async function flash(){
-    correctBox.classList.add("changecolor");
-    await correctBox.style.backgroundColor("rgb(0, 255, 0)");
-    await correctBox.style.backgroundColor("rgb(255, 0, 0)");
-    await correctBox.classList.remove("changecolor");
+class Keys {
+    constructor(x, y, state) {
+        this.x = x;
+        this.y = y;
+        this.size = 100
+        this.state = state;
+        this.color = "red";
+    }
+    draw() {
+        ctx.fillStyle = this.color;
+        ctx.fillRect(this.x, this.y, this.size, this.size);
+        console.log("drawn")
+    }
+}
+let keys = [
+    new Keys(100, 100, false),
+    new Keys(300, 100, false),
+    new Keys(500, 100, false),
+    new Keys(700, 100, false),
+    new Keys(100, 300, false),
+    new Keys(300, 300, false),
+    new Keys(500, 300, false),
+    new Keys(700, 300, false),
+];
+
+function init() {
+    redrawFrame();
+    for(i = 0; i < 8; i++){
+        keys[i].draw();
+    }
 }
 
-function boxSpawn() {
-
-}
-
-function load() {
-    button.classList.add("fade");
-    flash();
-    boxSpawn();
-    sleep(5000);
-}
-
+init();

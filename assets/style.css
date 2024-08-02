@@ -1,71 +1,12 @@
+* {
+    box-sizing: border-box;
+}
+
 body {
-    background-color: black;
     height: 100vh;
-    width: 100vw;
     margin: 0;
-    position: absolute;
-    display: grid;
-}
-
-#start{
-    align-self: center;
-    justify-self: center;
-}
-
-#start:hover{
-    background-color: red;
-}
-
-#box1 {
-    aspect-ratio: 1;
-    position: absolute;
-    width: 200px;
-}
-#box2 {
-    aspect-ratio: 1;
-    position: absolute;
-    width: 200px;
-}
-#box3 {
-    aspect-ratio: 1;
-    position: absolute;
-    width: 200px;
-}
-#box4 {
-    aspect-ratio: 1;
-    position: absolute;
-    width: 200px;
-}
-#box5 {
-    aspect-ratio: 1;
-    position: absolute;
-    width: 200px;
-}
-#box6 {
-    aspect-ratio: 1;
-    position: absolute;
-    width: 200px;
-}
-#box7 {
-    aspect-ratio: 1;
-    position: absolute;
-    width: 200px;
-}
-#box8 {
-    aspect-ratio: 1;
-    position: absolute;
-    width: 200px;
-}
-
-.fade {
-    display: none;
-    transition: all 0.3s;
-}
-
-.move {
-    transition: all 0.5s ease-out;
-}
-
-.changecolor {
-    transition: all 0.2;   
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: black;
 }
